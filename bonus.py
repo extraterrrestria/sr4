@@ -1,12 +1,15 @@
 import random
-a = int(input('Введите размерность массива: '))
+size = int(input('Введите размерность массива: '))
 lst = []
-for i in range(a):
+for i in range(size):
     lst.append(random.randint(0, 30))
-b = min(lst)
+minim = lst[0]
+for j in range(1, size):
+    if lst[j] < minim:
+        minim = lst[j]
 delta = int(input('Введите значение delta: '))
 counter = 0
-for i in lst:
-    if i - delta == b:
+for k in range(size):
+    if lst[k] - delta == minim:
         counter += 1
 print(counter)
